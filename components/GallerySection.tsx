@@ -59,7 +59,7 @@ export default function GallerySection() {
           <p className="font-body text-sm text-[#6b5f4a] italic">
             📸 Tag us{' '}
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-              className="text-[#ff4e00] hover:underline">#SlicePizzaBangalore</a>
+              className="text-[#ff4e00] hover:underline">#SlicePizzaHyderabad</a>
           </p>
         </motion.div>
       </div>

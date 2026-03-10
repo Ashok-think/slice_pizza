@@ -22,10 +22,10 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'SLICE — Premium Wood-Fired Pizza Cafe | Bangalore',
+  title: 'SLICE — Premium Wood-Fired Pizza Cafe | Hyderabad',
   description:
-    'SLICE is Bangalore\'s underground wood-fired pizza cafe. Handcrafted Neapolitan pizzas, signature craft drinks, and an atmosphere unlike any other. Order online or visit us in Koramangala.',
-  keywords: ['pizza', 'wood fired pizza', 'Bangalore pizza', 'craft pizza', 'Koramangala', 'SLICE cafe'],
+    'SLICE is Hyderabad\'s underground wood-fired pizza cafe. Handcrafted Neapolitan pizzas, signature craft drinks, and an atmosphere unlike any other. Order online or visit us in Banjara Hills.',
+  keywords: ['pizza', 'wood fired pizza', 'Hyderabad pizza', 'craft pizza', 'Banjara Hills', 'SLICE cafe', 'best pizza Hyderabad'],
   openGraph: {
     title: 'SLICE — Premium Wood-Fired Pizza Cafe',
     description: 'Six signature pizzas. Three craft drinks. One obsession.',

@@ -2,8 +2,9 @@
 
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
+import FloatingIngredients from '@/components/FloatingIngredients';
 
-const ZOMATO_URL = 'https://www.zomato.com/bangalore/search?q=pizza';
+const ZOMATO_URL = 'https://www.zomato.com/hyderabad/delivery/dish-pizza';
 
 const staggerVariants: Variants = {
   hidden: { opacity: 0, y: 60 },
@@ -41,6 +42,10 @@ export default function Hero() {
             'linear-gradient(to right, rgba(10,8,4,0.92) 0%, rgba(10,8,4,0.75) 40%, rgba(10,8,4,0.35) 70%, rgba(10,8,4,0.15) 100%)',
         }}
       />
+
+      {/* Floating ingredient particles */}
+      <FloatingIngredients count={12} />
+
       {/* Top fade — blends into navbar */}
       <div
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
@@ -70,7 +75,7 @@ export default function Hero() {
           >
             <div className="w-8 h-px bg-[#ff4e00]" />
             <span className="font-body text-xs uppercase tracking-[0.35em] text-[#ff4e00]">
-              Wood-Fired Pizzeria · Bangalore
+              Wood-Fired Pizzeria · Hyderabad
             </span>
           </motion.div>
 

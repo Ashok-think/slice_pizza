@@ -79,7 +79,7 @@ export default function AboutSection() {
           <div className="w-12 h-px bg-[#ff4e00]" />
           <p className="font-body text-[#6b5f4a] leading-relaxed text-base">
             SLICE was born in a basement kitchen at 2am, fuelled by a dream and a wood-fired oven. 
-            We started as a weekend pop-up in Koramangala, Bangalore — and the queue never left. 
+            We started as a weekend pop-up in Banjara Hills, Hyderabad — and the queue never left. 
             Today we serve six carefully crafted pizzas, three signature drinks, and an atmosphere 
             that makes you forget everything else. Every ingredient is sourced with intention. 
             Every pizza is built with obsession.

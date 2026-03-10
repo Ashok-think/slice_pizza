@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Pizza } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 
-const ZOMATO_PIZZA_URL = 'https://www.zomato.com/bangalore/search?q=pizza';
+const ZOMATO_PIZZA_URL = 'https://www.zomato.com/hyderabad/delivery/dish-pizza';
 
 
 // ─── Pizza Card ───────────────────────────────────
@@ -110,7 +110,12 @@ function PizzaCard({ pizza, index }: CardProps) {
       <div className="px-5 pb-4">
         <div className="flex items-start justify-between gap-2 mb-1">
           <h3 className="font-display text-xl text-[#f0e8d5] tracking-wide leading-tight">{pizza.name}</h3>
-          <span className="font-display text-xl shrink-0" style={{ color: pizza.themeColor }}>{pizza.price}</span>
+          <div className="flex flex-col items-end shrink-0">
+            <span className="font-display text-xl" style={{ color: pizza.themeColor }}>{pizza.price}</span>
+            {pizza.originalPrice && (
+              <span className="font-body text-[10px] text-[#6b5f4a] line-through">{pizza.originalPrice}</span>
+            )}
+          </div>
         </div>
         <p className="font-body text-xs text-[#6b5f4a] mb-4 line-clamp-2">{pizza.description}</p>
 

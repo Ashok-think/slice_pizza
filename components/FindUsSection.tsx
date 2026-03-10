@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 const infoItems = [
-  { icon: '📍', label: '12 Ember Lane, Koramangala, Bangalore' },
+  { icon: '📍', label: '8-2-293/82, Road No. 12, Banjara Hills, Hyderabad – 500 034' },
   { icon: '🕐', label: 'Monday – Sunday: 12pm – 11pm' },
   { icon: '📞', label: '+91 98765 43210' },
   { icon: '📧', label: 'hello@slicecafe.in' },
@@ -67,8 +67,8 @@ export default function FindUsSection() {
           style={{ height: 420, border: '1px solid rgba(255,78,0,0.2)' }}
         >
           <iframe
-            title="SLICE Cafe Location — Koramangala, Bangalore"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5773055764456!2d77.6216!3d12.9346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15c7a8d62d6f%3A0x4f7a231474c60e0e!2sKoramangala%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
+            title="SLICE Cafe Location — Banjara Hills, Hyderabad"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6012611916897!2d78.4483!3d17.4126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97924e60ef71%3A0x474f9b88e7ab21b9!2sBanjara%20Hills%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{

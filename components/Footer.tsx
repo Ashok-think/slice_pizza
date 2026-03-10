@@ -35,7 +35,7 @@ export default function Footer() {
               <span className="text-white">CE</span>
             </a>
             <p className="font-body text-sm text-[#6b5f4a] leading-relaxed max-w-xs">
-              Underground wood-fired pizza, crafted with obsession. Est. 2024, Bangalore.
+              Underground wood-fired pizza, crafted with obsession. Est. 2024, Hyderabad.
             </p>
             <div className="flex gap-3 mt-2">
               {socials.map((s) => (
@@ -128,7 +128,7 @@ export default function Footer() {
             © 2024 SLICE Cafe. All rights reserved.
           </p>
           <p className="font-body text-xs text-[#6b5f4a]">
-            Made with 🔥 in Bangalore
+            Made with 🔥 in Hyderabad
           </p>
         </div>
       </div>

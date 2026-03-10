@@ -60,7 +60,7 @@ export default function LoadingScreen() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="font-body text-xs uppercase tracking-[0.5em] text-[#6b5f4a] mb-10"
           >
-            Wood-Fired · Bangalore
+            Wood-Fired · Hyderabad
           </motion.p>
 
           {/* Progress bar */}
