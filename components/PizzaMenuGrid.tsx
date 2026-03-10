@@ -83,8 +83,8 @@ function PizzaCard({ pizza, index }: CardProps) {
         {'🌶'.repeat(pizza.spiceLevel)}
       </div>
 
-      {/* Pizza Image */}
-      <div className="relative w-full aspect-square flex items-center justify-center p-6" style={{ background: '#000000' }}>
+      {/* Pizza Image — hover overlay is scoped inside here so buttons stay visible */}
+      <div className="relative w-full aspect-[4/3] flex items-center justify-center p-3" style={{ background: '#000000' }}>
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{ background: `radial-gradient(circle, ${pizza.themeColor}25 0%, transparent 70%)` }} />
         {imgFailed ? (
@@ -104,10 +104,32 @@ function PizzaCard({ pizza, index }: CardProps) {
             }}
           />
         )}
+
+        {/* Hover overlay — scoped inside image div only, never covers buttons */}
+        <div
+          className="absolute inset-0 flex flex-col items-start justify-end p-4"
+          style={{
+            background: `linear-gradient(to top, ${pizza.themeColor}ee 0%, ${pizza.themeColor}70 50%, transparent 85%)`,
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'opacity 0.3s ease, transform 0.3s ease',
+            pointerEvents: 'none',
+          }}
+        >
+          <p className="font-display text-sm text-white mb-1 tracking-wider">INGREDIENTS</p>
+          <ul className="space-y-0.5">
+            {pizza.ingredients.slice(0, 4).map((ing) => (
+              <li key={ing} className="font-body text-[11px] text-white/90 flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-white/60 block shrink-0" />
+                {ing}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Info Row */}
-      <div className="px-5 pb-4">
+      <div className="px-4 pt-3 pb-4">
         <div className="flex items-start justify-between gap-2 mb-1">
           <h3 className="font-display text-xl text-[#f0e8d5] tracking-wide leading-tight">{pizza.name}</h3>
           <div className="flex flex-col items-end shrink-0">
@@ -117,7 +139,7 @@ function PizzaCard({ pizza, index }: CardProps) {
             )}
           </div>
         </div>
-        <p className="font-body text-xs text-[#6b5f4a] mb-4 line-clamp-2">{pizza.description}</p>
+        <p className="font-body text-xs text-[#6b5f4a] mb-3 line-clamp-2">{pizza.description}</p>
 
         {/* Action Buttons */}
         <div className="flex gap-2">
@@ -151,26 +173,7 @@ function PizzaCard({ pizza, index }: CardProps) {
         </div>
       </div>
 
-      {/* Hover overlay — ingredients list */}
-      <div
-        className="absolute inset-0 flex flex-col items-start justify-end p-5 pointer-events-none"
-        style={{
-          background: `linear-gradient(to top, ${pizza.themeColor}f0 0%, ${pizza.themeColor}80 45%, transparent 80%)`,
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? 'translateY(0)' : 'translateY(15px)',
-          transition: 'opacity 0.3s ease, transform 0.3s ease',
-        }}
-      >
-        <p className="font-display text-lg text-white mb-2 tracking-wider">INGREDIENTS</p>
-        <ul className="space-y-0.5 mb-4">
-          {pizza.ingredients.slice(0, 5).map((ing) => (
-            <li key={ing} className="font-body text-xs text-white/90 flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-white/60 block shrink-0" />
-              {ing}
-            </li>
-          ))}
-        </ul>
-      </div>
+
     </div>
   );
 }
