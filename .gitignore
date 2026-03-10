@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source files (not needed for deployment)
+Whisk_*.mp4
+remove-backgrounds.js
+generate-frames.js
+pizza1.png
+pizza2.png
+pizza3.png
+pizza1-1.png
+pizza1-2.png
+pizza2-1.png
+pizza2-2.png
+pizza3-1.png
+pizza3-2.png
