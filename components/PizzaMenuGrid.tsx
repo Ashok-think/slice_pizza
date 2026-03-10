@@ -35,7 +35,7 @@ function PizzaCard({ pizza, index }: CardProps) {
 
   // Reset image when pizza changes
   useEffect(() => {
-    setImgSrc(`${pizza.folderPath}/1.webp`);
+    setImgSrc(`${pizza.folderPath}/30.webp`);
     setImgFailed(false);
   }, [pizza.folderPath]);
 
@@ -143,9 +143,10 @@ function PizzaCard({ pizza, index }: CardProps) {
             href={ZOMATO_PIZZA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 font-body text-xs font-semibold uppercase tracking-wider px-3 py-2.5 rounded-xl border border-[rgba(240,232,213,0.2)] text-[#f0e8d5] transition-all duration-200 hover:border-[#ff4e00] hover:text-[#ff4e00] hover:scale-105 flex items-center justify-center gap-1.5"
+            className="flex-1 font-body text-xs font-semibold uppercase tracking-wider px-3 py-2.5 rounded-xl text-white transition-all duration-200 hover:scale-105 flex items-center justify-center gap-1.5"
+            style={{ background: '#e23744', boxShadow: '0 0 12px rgba(226,55,68,0.4)' }}
           >
-            🛵 Zomato
+            🍕 Zomato
           </a>
         </div>
       </div>

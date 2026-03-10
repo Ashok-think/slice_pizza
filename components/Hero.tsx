@@ -2,7 +2,6 @@
 
 import type { Variants } from 'framer-motion';
 import { motion } from 'framer-motion';
-import FloatingIngredients from '@/components/FloatingIngredients';
 
 const ZOMATO_URL = 'https://www.zomato.com/hyderabad/delivery/dish-pizza';
 
@@ -42,9 +41,6 @@ export default function Hero() {
             'linear-gradient(to right, rgba(10,8,4,0.92) 0%, rgba(10,8,4,0.75) 40%, rgba(10,8,4,0.35) 70%, rgba(10,8,4,0.15) 100%)',
         }}
       />
-
-      {/* Floating ingredient particles */}
-      <FloatingIngredients count={12} />
 
       {/* Top fade — blends into navbar */}
       <div
