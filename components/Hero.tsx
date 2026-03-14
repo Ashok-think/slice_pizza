@@ -59,8 +59,8 @@ export default function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-28">
-        <div className="max-w-2xl flex flex-col gap-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 w-full py-24 md:py-28">
+        <div className="w-full md:max-w-2xl flex flex-col gap-5">
 
           {/* Eyebrow label */}
           <motion.div
@@ -86,7 +86,7 @@ export default function Hero() {
                 animate="visible"
                 className="font-display leading-[0.88]"
                 style={{
-                  fontSize: 'clamp(5rem, 14vw, 11rem)',
+                  fontSize: 'clamp(3.5rem, 14vw, 11rem)',
                   color: i === 1 ? '#ff4e00' : '#f0e8d5',
                   textShadow:
                     i === 1
@@ -116,12 +116,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.6 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-col sm:flex-row flex-wrap gap-3"
           >
             <a
               href="#menu"
-              className="font-body font-semibold px-8 py-4 rounded-full bg-[#ff4e00] text-white uppercase tracking-widest text-sm
-                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,78,0,0.7)]"
+              className="font-body font-semibold px-6 py-3.5 rounded-full bg-[#ff4e00] text-white uppercase tracking-widest text-sm
+                transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,78,0,0.7)] text-center"
             >
               Explore Menu
             </a>
@@ -129,8 +129,8 @@ export default function Hero() {
               href={ZOMATO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body font-semibold px-8 py-4 rounded-full border border-[rgba(240,232,213,0.3)] text-[#f0e8d5] uppercase tracking-widest text-sm
-                transition-all duration-300 hover:border-[#ff4e00] hover:text-[#ff4e00] backdrop-blur-sm flex items-center gap-2"
+              className="font-body font-semibold px-6 py-3.5 rounded-full border border-[rgba(240,232,213,0.3)] text-[#f0e8d5] uppercase tracking-widest text-sm
+                transition-all duration-300 hover:border-[#ff4e00] hover:text-[#ff4e00] backdrop-blur-sm flex items-center justify-center gap-2"
             >
               <span>🛵</span> Order on Zomato
             </a>
@@ -146,7 +146,7 @@ export default function Hero() {
             {['🔥 Wood Fired', '🌡️ 450°C Oven', '⏳ 48hr Dough', '⭐ 500+ Reviews'].map((tag) => (
               <span
                 key={tag}
-                className="font-body text-xs uppercase tracking-wider text-[#6b5f4a] border border-[rgba(107,95,74,0.3)] px-3 py-1.5 rounded-full backdrop-blur-sm"
+                className="font-body text-[11px] uppercase tracking-wider text-[#6b5f4a] border border-[rgba(107,95,74,0.3)] px-3 py-1 rounded-full backdrop-blur-sm"
                 style={{ background: 'rgba(10,8,4,0.4)' }}
               >
                 {tag}

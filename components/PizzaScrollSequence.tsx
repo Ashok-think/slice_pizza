@@ -99,10 +99,11 @@ export default function AllPizzasScroll({ pizzas }: Props) {
   );
 }
 
-// ─── Single pizza slide ───────────────────────────────────────────────────────
+// ─── Single pizza slide ─────────────────────────────────────────────────────────────────────────────────
 function PizzaSlide({ pizza, index, isActive }: { pizza: Pizza; index: number; isActive: boolean }) {
   return (
-    <div className="relative w-screen h-full flex-shrink-0 flex items-center"
+    <div
+      className="relative w-screen h-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center md:items-center"
       style={{ padding: '0 5vw' }}
     >
       {/* Ambient glow */}
@@ -111,98 +112,42 @@ function PizzaSlide({ pizza, index, isActive }: { pizza: Pizza; index: number; i
         transition: 'opacity 0.6s ease',
         opacity: isActive ? 1 : 0,
       }} />
-      {/* Edge vignette */}
-      <div className="absolute inset-0 pointer-events-none" style={{
+      {/* Edge vignette — desktop only */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block" style={{
         boxShadow: 'inset 80px 0 120px rgba(10,8,4,0.9), inset -80px 0 120px rgba(10,8,4,0.9)',
       }} />
 
-      {/* ── LEFT TEXT (fixed width, never overflows) ── */}
-      <div className="relative z-20 flex flex-col w-[42%] min-w-0 pr-8">
-        {/* Badge */}
-        <span className="font-body text-[10px] uppercase tracking-[0.4em] px-3 py-1 rounded-full border self-start mb-4 whitespace-nowrap"
-          style={{ borderColor: `${pizza.themeColor}55`, color: pizza.themeColor }}>
-          {pizza.badge}
-        </span>
+      {/* on mobile: image FIRST (top), then text below */}
+      {/* on desktop: text LEFT, image RIGHT */}
 
-        {/* Name — responsive, wraps ok */}
-        <h2 className="font-display leading-[0.9] mb-3 break-words"
-          style={{
-            fontSize: 'clamp(2.2rem, 4.5vw, 5rem)',
-            color: '#f0e8d5',
-            textShadow: `0 0 60px ${pizza.themeColor}40`,
-            animation: isActive ? 'fadeUp 0.45s ease forwards' : 'none',
-          }}>
-          {pizza.name.toUpperCase()}
-        </h2>
-
-        {/* Tagline */}
-        <p className="font-body text-base md:text-lg mb-5 italic"
-          style={{ color: pizza.themeColor, animation: isActive ? 'fadeUp 0.45s 0.07s ease both' : 'none', opacity: 0 }}>
-          {pizza.tagline}
-        </p>
-
-        {/* Craft detail */}
-        <div className="mb-5" style={{ animation: isActive ? 'fadeUp 0.45s 0.14s ease both' : 'none', opacity: 0 }}>
-          <p className="font-body text-[9px] uppercase tracking-[0.4em] mb-0.5" style={{ color: `${pizza.themeColor}90` }}>
-            The Craft
-          </p>
-          <p className="font-display text-xl text-[#f0e8d5] leading-snug mb-1">
-            {pizza.section2.title}
-          </p>
-          <p className="font-body text-xs text-[#6b5f4a] leading-relaxed line-clamp-2">
-            {pizza.section2.subtitle}
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="flex gap-5 mb-5" style={{ animation: isActive ? 'fadeUp 0.45s 0.21s ease both' : 'none', opacity: 0 }}>
-          {pizza.stats.map(s => (
-            <div key={s.label} className="flex flex-col gap-0.5">
-              <span className="font-body text-[8px] uppercase tracking-widest text-[#6b5f4a]">{s.label}</span>
-              <span className="font-display text-sm text-[#f0e8d5]">{s.val}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Price + CTA */}
-        <div className="flex items-center gap-3" style={{ animation: isActive ? 'fadeUp 0.45s 0.28s ease both' : 'none', opacity: 0 }}>
-          <span className="font-display text-3xl" style={{ color: pizza.themeColor }}>{pizza.price}</span>
-          <a href="#menu"
-            className="font-body text-xs font-semibold px-4 py-2.5 rounded-full text-white transition-all hover:scale-105 hover:shadow-lg"
-            style={{ background: pizza.themeColor }}>
-            Order Now →
-          </a>
-        </div>
-      </div>
-
-      {/* ── RIGHT IMAGE (takes remaining space) ── */}
-      <div className="relative z-10 flex items-center justify-center flex-1 h-full">
+      {/* ── IMAGE (top on mobile, right on desktop) ── */}
+      <div className="relative z-10 flex items-center justify-center flex-shrink-0
+        w-[65vw] h-[38vh] md:h-full md:flex-1 md:w-auto order-1 md:order-2">
         {/* Glow ring */}
         <div className="absolute rounded-full pointer-events-none" style={{
           width: '55%', height: '55%',
           background: `radial-gradient(circle, ${pizza.themeColor}45 0%, transparent 60%)`,
-          filter: 'blur(50px)',
-          transition: 'background 0.5s ease',
+          filter: 'blur(40px)',
         }} />
 
-        {/* Pizza */}
+        {/* Pizza image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`${pizza.folderPath}/30.webp`}
           alt={pizza.name}
           className="relative select-none"
           style={{
-            width: 'min(52vw, 520px)',
-            height: 'min(52vw, 520px)',
+            width: 'min(55vw, 480px)',
+            height: 'min(55vw, 480px)',
             objectFit: 'contain',
             mixBlendMode: 'screen',
-            filter: `drop-shadow(0 0 50px ${pizza.themeColor}80) brightness(1.1)`,
+            filter: `drop-shadow(0 0 40px ${pizza.themeColor}80) brightness(1.1)`,
             animation: isActive ? 'floatSpin 5s ease-in-out infinite' : 'none',
           }}
         />
 
-        {/* Ghost slide number */}
-        <div className="absolute bottom-6 left-8 pointer-events-none select-none">
+        {/* Ghost slide number — desktop only */}
+        <div className="absolute bottom-6 left-8 pointer-events-none select-none hidden md:block">
           <span className="font-display" style={{
             fontSize: 'clamp(5rem, 12vw, 10rem)',
             lineHeight: 1,
@@ -213,10 +158,10 @@ function PizzaSlide({ pizza, index, isActive }: { pizza: Pizza; index: number; i
           </span>
         </div>
 
-        {/* Ingredient pills — right side */}
+        {/* Ingredient pills — desktop only */}
         {pizza.ingredients.slice(0, 3).map((ing, j) => (
           <div key={ing}
-            className="absolute right-2 font-body text-[9px] text-[#f0e8d5]/70 rounded-full px-2.5 py-1 border border-[rgba(255,255,255,0.07)] whitespace-nowrap backdrop-blur-sm"
+            className="absolute right-2 font-body text-[9px] text-[#f0e8d5]/70 rounded-full px-2.5 py-1 border border-[rgba(255,255,255,0.07)] whitespace-nowrap backdrop-blur-sm hidden md:block"
             style={{
               top: `${25 + j * 22}%`,
               background: 'rgba(10,8,4,0.75)',
@@ -226,6 +171,69 @@ function PizzaSlide({ pizza, index, isActive }: { pizza: Pizza; index: number; i
             {ing}
           </div>
         ))}
+      </div>
+
+      {/* ── TEXT (bottom on mobile, left on desktop) ── */}
+      <div className="relative z-20 flex flex-col order-2 md:order-1
+        w-full md:w-[42%] md:min-w-0 md:pr-8
+        px-2 pb-4 md:pb-0 md:px-0
+        items-center md:items-start text-center md:text-left">
+
+        {/* Badge */}
+        <span className="font-body text-[10px] uppercase tracking-[0.4em] px-3 py-1 rounded-full border mb-3 whitespace-nowrap"
+          style={{ borderColor: `${pizza.themeColor}55`, color: pizza.themeColor }}>
+          {pizza.badge}
+        </span>
+
+        {/* Name */}
+        <h2 className="font-display leading-[0.9] mb-2 break-words w-full"
+          style={{
+            fontSize: 'clamp(1.8rem, 6vw, 5rem)',
+            color: '#f0e8d5',
+            textShadow: `0 0 60px ${pizza.themeColor}40`,
+            animation: isActive ? 'fadeUp 0.45s ease forwards' : 'none',
+          }}>
+          {pizza.name.toUpperCase()}
+        </h2>
+
+        {/* Tagline */}
+        <p className="font-body text-sm md:text-base mb-3 italic"
+          style={{ color: pizza.themeColor, animation: isActive ? 'fadeUp 0.45s 0.07s ease both' : 'none', opacity: 0 }}>
+          {pizza.tagline}
+        </p>
+
+        {/* Craft detail — hidden on small mobile to save space */}
+        <div className="mb-3 hidden sm:block" style={{ animation: isActive ? 'fadeUp 0.45s 0.14s ease both' : 'none', opacity: 0 }}>
+          <p className="font-body text-[9px] uppercase tracking-[0.4em] mb-0.5" style={{ color: `${pizza.themeColor}90` }}>
+            The Craft
+          </p>
+          <p className="font-display text-lg text-[#f0e8d5] leading-snug mb-1">
+            {pizza.section2.title}
+          </p>
+          <p className="font-body text-xs text-[#6b5f4a] leading-relaxed line-clamp-2">
+            {pizza.section2.subtitle}
+          </p>
+        </div>
+
+        {/* Stats — hidden on mobile */}
+        <div className="flex gap-5 mb-4 hidden sm:flex" style={{ animation: isActive ? 'fadeUp 0.45s 0.21s ease both' : 'none', opacity: 0 }}>
+          {pizza.stats.map(s => (
+            <div key={s.label} className="flex flex-col gap-0.5">
+              <span className="font-body text-[8px] uppercase tracking-widest text-[#6b5f4a]">{s.label}</span>
+              <span className="font-display text-sm text-[#f0e8d5]">{s.val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Price + CTA */}
+        <div className="flex items-center gap-3 justify-center md:justify-start" style={{ animation: isActive ? 'fadeUp 0.45s 0.28s ease both' : 'none', opacity: 0 }}>
+          <span className="font-display text-2xl md:text-3xl" style={{ color: pizza.themeColor }}>{pizza.price}</span>
+          <a href="#menu"
+            className="font-body text-xs font-semibold px-4 py-2 rounded-full text-white transition-all hover:scale-105"
+            style={{ background: pizza.themeColor }}>
+            Order Now →
+          </a>
+        </div>
       </div>
     </div>
   );
